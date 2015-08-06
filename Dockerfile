@@ -45,9 +45,8 @@ ADD defaults/envvars /etc/apache2/envvars
 ADD defaults/apache-config.conf  /etc/apache2/sites-enabled/000-default.conf
 ADD defaults/cronjob /cronfile/cronjob
 
-#Adduser abc
-RUN useradd -u 911 -U -s /bin/false abc
-RUN usermod -G users abc
+#set permissions on cronfile for abc
+
 RUN chown -R abc:abc /cronfile
 
 #Adding Custom files
