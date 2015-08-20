@@ -20,4 +20,4 @@
 # For more information see the manual pages of crontab(5) and cron(8)
 #
 # m h  dom mon dow   command
-0,15 * * * * php /var/www/freshrss/app/actualize_script.php > /tmp/FreshRSS.log 2>&1
+0,15 * * * * php /config/freshrss/app/actualize_script.php > /tmp/FreshRSS.log 2>&1
