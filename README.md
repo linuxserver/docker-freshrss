@@ -2,25 +2,24 @@
 
 The [LinuxServer.io](http://linuxserver.io) team brings you another quality container release featuring auto-update on startup, easy user mapping and community support. Be sure to checkout our [forums](http://forum.linuxserver.io) or for real-time support our [IRC](http://www.linuxserver.io/index.php/irc/) on freenode at `#linuxserver.io`.
 
-# linuxserver/<container-name>
+# linuxserver/freshrss
 
 <Provide a short, concise description of the application. No more than two SHORT paragraphs. Link to sources where possible and include an image illustrating your point if necessary. Point users to the original applications website, as that's the best place to get support - not here.>
 
 ## Usage
 
 ```
-docker create --name=<container-name> -v /etc/localtime:/etc/localtime:ro -v <path to data>:/config -e PGID=<gid> -e PUID=<uid>  -p 1234:1234 linuxserver/<container-name>
+docker create --name=freshrss -v <path to data>:/config -e PGID=<gid> -e PUID=<uid> -e TZ=<timezone> -p 80:80 linuxserver/freshrss
 ```
 
 **Parameters**
 
-* `-p 4242` - the port(s)
-* `-v /etc/localhost` for timesync - *optional*
-* `-v /config` -
+* `-p 80` - the port(s)
+* `-v /config` - local storage for freshrss site files
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
 
-It is based on phusion-baseimage with ssh removed, for shell access whilst the container is running do `docker exec -it quassel-core /bin/bash`.
+It is based on phusion-baseimage with ssh removed, for shell access whilst the container is running do `docker exec -it freshrss /bin/bash`.
 
 ### User / Group Identifiers
 
@@ -35,12 +34,12 @@ Part of what makes our containers work so well is by allowing you to specify you
 
 ## Updates
 
-* Upgrade to the latest version simply `docker restart <container-name>`.
-* To monitor the logs of the container in realtime `docker logs -f <container-name>`.
+* Upgrade to the latest version simply `docker restart freshrss`.
+* To monitor the logs of the container in realtime `docker logs -f freshrss`.
 
 
 
 ## Versions
 
-+ **dd.MM.yyyy:** This is the standard Version type now. 
++ **21.08.15:** Initial Release. 
 
