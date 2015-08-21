@@ -47,8 +47,8 @@ sed -i "s/error_reporting = .*$/error_reporting = E_ERROR | E_WARNING | E_PARSE/
 
 # mv config files
 mv /defaults/envvars /etc/apache2/envvars && \
-mv  /defaults/apache-config.conf  /etc/apache2/sites-enabled/000-default.conf && \
-mv defaults/cronjob /cronfile/cronjob && \
+mv /defaults/apache-config.conf  /etc/apache2/sites-enabled/000-default.conf && \
+mv /defaults/cronjob /cronfile/cronjob && \
 
 #set permissions on cronfile for abc
 chown -R abc:abc /cronfile
