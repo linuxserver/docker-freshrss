@@ -4,7 +4,7 @@ The [LinuxServer.io](http://linuxserver.io) team brings you another quality cont
 
 # linuxserver/freshrss
 
-<Provide a short, concise description of the application. No more than two SHORT paragraphs. Link to sources where possible and include an image illustrating your point if necessary. Point users to the original applications website, as that's the best place to get support - not here.>
+A free, self-hostable aggregator for rss feeds. http://freshrss.org/
 
 ## Usage
 
@@ -18,7 +18,6 @@ docker create --name=freshrss -v <path to data>:/config -e PGID=<gid> -e PUID=<u
 * `-v /config` - local storage for freshrss site files
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
-* `-e TZ` for Timezone - eg. Europe/London etc...
 
 It is based on phusion-baseimage with ssh removed, for shell access whilst the container is running do `docker exec -it freshrss /bin/bash`.
 
