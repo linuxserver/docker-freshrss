@@ -9,7 +9,7 @@ A free, self-hostable aggregator for rss feeds. http://freshrss.org/
 ## Usage
 
 ```
-docker create --name=freshrss -v <path to data>:/config -e PGID=<gid> -e PUID=<uid> -e TZ=<timezone> -p 80:80 linuxserver/freshrss
+docker create --name=freshrss -v <path to data>:/config -e PGID=<gid> -e PUID=<uid> -p 80:80 linuxserver/freshrss
 ```
 
 **Parameters**
