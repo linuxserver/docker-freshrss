@@ -18,7 +18,7 @@ docker create --name=freshrss -v <path to data>:/config -e PGID=<gid> -e PUID=<u
 * `-v /config` - local storage for freshrss site files
 * `-e PGID` for GroupID - see below for explanation
 * `-e PUID` for UserID - see below for explanation
-
+* `-e TZ` for Timezone - eg. Europe/London etc...
 It is based on phusion-baseimage with ssh removed, for shell access whilst the container is running do `docker exec -it freshrss /bin/bash`.
 
 ### User / Group Identifiers
