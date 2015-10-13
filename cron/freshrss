@@ -1,0 +1,1 @@
+*/15 * * * * php /config/www/freshrss/app/actualize_script.php > /tmp/FreshRSS.log 2>&1
