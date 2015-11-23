@@ -40,6 +40,6 @@ Create a user and database in your mysql/mariadb server (not root) and then foll
 
 
 ## Versions
-
++ **23.11.15:** Update dependencies to latest requirements
 + **21.08.15:** Initial Release. 
 
