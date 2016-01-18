@@ -3,8 +3,8 @@ FROM linuxserver/baseimage.apache
 MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 
 # Set correct environment variables
-ENV APTLIST="git-core php5-gmp php5-intl php5-mysqlnd php5-pgsql"
-ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
+ENV APTLIST="git-core php5-gmp php5-intl php5-mysqlnd php5-pgsql" \
+LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
 # Set the locale
 RUN locale-gen en_US.UTF-8
