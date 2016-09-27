@@ -62,6 +62,7 @@ Create a user and database in your mysql/mariadb server (not root) and then foll
 
 ## Versions
 
-+ **11.09.16:** Add layer badges to README. 
++ **27.09.16:** Fix for cron job.
++ **11.09.16:** Add layer badges to README.
 + **23.11.15:** Update dependencies to latest requirements
 + **21.08.15:** Initial Release.
