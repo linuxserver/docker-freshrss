@@ -27,6 +27,7 @@ ADD defaults/ /defaults/
 ADD cron/ /etc/cron.d/
 ADD init/ /etc/my_init.d/
 RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
+RUN chmod 600 /etc/cron.d/freshrss
 
 # expose ports
 EXPOSE 80
