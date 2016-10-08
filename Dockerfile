@@ -7,7 +7,7 @@ MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
 COPY sources.list /etc/apt/
 
 # Set correct environment variables
-ENV APTLIST="git-core php5-gmp php5-intl php5-mysqlnd php5-pgsql" \
+ENV APTLIST="git-core php5-gmp php5-intl php5-mysqlnd php5-pgsql sqlite php5-sqlite" \
 LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
 
 # Set the locale
