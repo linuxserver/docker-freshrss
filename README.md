@@ -11,7 +11,7 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 * [Podcast][podcasturl] covers everything to do with getting the most from your Linux Server plus a focus on all things Docker and containerisation!
 
 # linuxserver/freshrss
-[![](https://images.microbadger.com/badges/image/linuxserver/freshrss.svg)](http://microbadger.com/images/linuxserver/freshrss "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/freshrss.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/freshrss.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-freshrss)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-freshrss/)
+[![](https://images.microbadger.com/badges/version/linuxserver/freshrss.svg)](https://microbadger.com/images/linuxserver/freshrss "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/freshrss.svg)](http://microbadger.com/images/linuxserver/freshrss "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/freshrss.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/freshrss.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-freshrss)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-freshrss/)
 [hub]: https://hub.docker.com/r/linuxserver/freshrss/
 
 [FreshRSS][freshrssurl] is a free, self-hostable aggregator for rss feeds
@@ -59,9 +59,17 @@ Create a user and database in your mysql/mariadb server (not root) and then foll
 * Upgrade to the latest version simply `docker restart freshrss`.
 * To monitor the logs of the container in realtime `docker logs -f freshrss`.
 
+* container version number 
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' freshrss`
+
+* image version number
+
+`docker inspect -f '{{ index .Config.Labels "build_version" }}' linuxserver/freshrss`
 
 ## Versions
 
++ **14-10-16:** Add version layer information.
 + **08.10.16:** Add Sqlite support for standalone operation. 
 + **27.09.16:** Fix for cron job.
 + **11.09.16:** Add layer badges to README.
