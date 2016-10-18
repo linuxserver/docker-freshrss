@@ -75,7 +75,7 @@ Create a user and database in your mysql/mariadb server (not root) and then foll
 
 ## Versions
 
-+ **14-10-16:** Add version layer information.
++ **14.10.16:** Add version layer information.
 + **08.10.16:** Add Sqlite support for standalone operation. 
 + **27.09.16:** Fix for cron job.
 + **11.09.16:** Add layer badges to README.
