@@ -60,9 +60,8 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
 
 Create a user and database in your mysql/mariadb server (not root) and then follow the setup wizard in the webui. Use the IP address for "host" of your database server.
 
-## Updates
+## Info
 
-* Upgrade to the latest version simply `docker restart freshrss`.
 * To monitor the logs of the container in realtime `docker logs -f freshrss`.
 
 * container version number 
