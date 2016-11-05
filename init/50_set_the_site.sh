@@ -5,6 +5,6 @@ chown -R abc:abc /config)
 # opt out for autoupdates
 [ "$ADVANCED_DISABLEUPDATES" ] && exit 0
 
-cd /config/www/freshrss
+cd /config/www/freshrss || exit
 git pull
 chown -R abc:abc /config
