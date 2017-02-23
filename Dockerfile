@@ -1,40 +1,33 @@
-# set base os
-FROM linuxserver/baseimage.apache
-MAINTAINER Sparklyballs <sparklyballs@linuxserver.io>
+FROM lsiobase/alpine.nginx:3.5
+MAINTAINER sparklyballs
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
-# copy sources.list
-COPY sources.list /etc/apt/
+# install packages
+RUN \
+ apk add --no-cache \
+	git \
+	php7-ctype \
+	php7-curl \
+	php7-dom \
+	php7-gmp \
+	php7-intl \
+	php7-mysqlnd \
+	php7-pdo_mysql \
+	php7-pdo_pgsql \
+	php7-pdo_sqlite \
+	php7-pgsql \
+	php7-sqlite3 \
+	php7-xml \
+	php7-zip \
+	sqlite
 
-# Set correct environment variables
-ENV APTLIST="git-core php5-gmp php5-intl php5-mysqlnd php5-pgsql php5-sqlite sqlite" \
-LANG="en_US.UTF-8" LANGUAGE="en_US:en" LC_ALL="en_US.UTF-8"
+# copy local files
+COPY root/ /
 
-# Set the locale
-RUN locale-gen en_US.UTF-8
-
-# update apt and install dependencies
-RUN apt-get update && \
-apt-get install \
-$APTLIST -qy && \
-
-# cleanup 
-apt-get clean -y && \
-rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# add some files 
-ADD defaults/ /defaults/
-ADD cron/ /etc/cron.d/
-ADD init/ /etc/my_init.d/
-RUN chmod -v +x /etc/service/*/run /etc/my_init.d/*.sh
-RUN chmod 600 /etc/cron.d/freshrss
-
-# expose ports
-EXPOSE 80
-
-# set volumes
+# ports and volumes
+EXPOSE 80 443
 VOLUME /config
