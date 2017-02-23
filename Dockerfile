@@ -14,7 +14,9 @@ RUN \
 	php7-curl \
 	php7-dom \
 	php7-gmp \
+	php7-iconv \
 	php7-intl \
+	php7-mbstring \
 	php7-mysqlnd \
 	php7-pdo_mysql \
 	php7-pdo_pgsql \
@@ -23,6 +25,7 @@ RUN \
 	php7-sqlite3 \
 	php7-xml \
 	php7-zip \
+	php7-zlib \
 	sqlite
 
 # copy local files

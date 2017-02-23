@@ -1,30 +1,37 @@
 server {
-	listen 80 default_server;
+  listen 80; # http on port 80
+  listen 443 ssl; # https on port 443
 
-	listen 443 ssl;
+  # https configuration
+  ssl on;
+  ssl_certificate /config/keys/cert.crt;
+  ssl_certificate_key /config/keys/cert.key;
 
-	root /config/www/freshrss;
-	index index.html index.htm index.php;
+  # your server's url(s)
+  server_name _;
 
-	server_name _;
+  # the folder p of your FreshRSS installation
+  root /config/www/freshrss/p/;
 
-	ssl_certificate /config/keys/cert.crt;
-	ssl_certificate_key /config/keys/cert.key;
+  index index.php index.html index.htm;
 
-	client_max_body_size 0;
+  # nginx log files
+ #  access_log /var/log/nginx/rss.access.log;
+ #  error_log /var/log/nginx/rss.error.log;
 
-	location / {
-		try_files $uri $uri/ /index.html /index.php?$args =404;
-	}
+  # php files handling
+  # this regex is mandatory because of the API
+  location ~ ^.+?\.php(/.*)?$ {
+    fastcgi_pass 127.0.0.1:9000;
+    fastcgi_split_path_info ^(.+\.php)(/.*)$;
+    # By default, the variable PATH_INFO is not set under PHP-FPM
+    # But FreshRSS API greader.php need it. If you have a "Bad Request" error, double check this var !
+    fastcgi_param PATH_INFO $fastcgi_path_info;
+    include /etc/nginx/fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+  }
 
-	location ~ \.php$ {
-		fastcgi_split_path_info ^(.+\.php)(/.+)$;
-		# With php5-cgi alone:
-		fastcgi_pass 127.0.0.1:9000;
-		# With php5-fpm:
-		#fastcgi_pass unix:/var/run/php5-fpm.sock;
-		fastcgi_index index.php;
-		include /etc/nginx/fastcgi_params;
-
-	}
+  location / {
+    try_files $uri $uri/ index.php;
+  }
 }
