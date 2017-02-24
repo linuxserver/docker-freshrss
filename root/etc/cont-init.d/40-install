@@ -1,0 +1,12 @@
+#!/usr/bin/with-contenv bash
+
+# install freshrss
+[[ ! -f /config/www/freshrss/index.php ]] && \
+	git clone https://github.com/FreshRSS/FreshRSS.git /config/www/freshrss
+
+# set cronjob
+crontab /defaults/freshrss
+
+# permissions
+chown -R abc:abc \
+	/config
