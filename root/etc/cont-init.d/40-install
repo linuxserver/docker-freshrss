@@ -5,7 +5,7 @@
 	git clone https://github.com/FreshRSS/FreshRSS.git /config/www/freshrss
 
 # set cronjob
-crontab /defaults/freshrss
+crontab -u root /defaults/freshrss
 
 # permissions
 chown -R abc:abc \
