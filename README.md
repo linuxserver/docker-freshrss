@@ -2,6 +2,8 @@
 [forumurl]: https://forum.linuxserver.io
 [ircurl]: https://www.linuxserver.io/irc/
 [podcasturl]: https://www.linuxserver.io/podcast/
+[appurl]: https://freshrss.org/
+[hub]: https://hub.docker.com/r/linuxserver/freshrss/
 
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)][linuxserverurl]
 
@@ -12,12 +14,10 @@ The [LinuxServer.io][linuxserverurl] team brings you another container release f
 
 # linuxserver/freshrss
 [![](https://images.microbadger.com/badges/version/linuxserver/freshrss.svg)](https://microbadger.com/images/linuxserver/freshrss "Get your own version badge on microbadger.com")[![](https://images.microbadger.com/badges/image/linuxserver/freshrss.svg)](http://microbadger.com/images/linuxserver/freshrss "Get your own image badge on microbadger.com")[![Docker Pulls](https://img.shields.io/docker/pulls/linuxserver/freshrss.svg)][hub][![Docker Stars](https://img.shields.io/docker/stars/linuxserver/freshrss.svg)][hub][![Build Status](http://jenkins.linuxserver.io:8080/buildStatus/icon?job=Dockers/LinuxServer.io/linuxserver-freshrss)](http://jenkins.linuxserver.io:8080/job/Dockers/job/LinuxServer.io/job/linuxserver-freshrss/)
-[hub]: https://hub.docker.com/r/linuxserver/freshrss/
 
-[FreshRSS][freshrssurl] is a free, self-hostable aggregator for rss feeds
+[FreshRSS][appurl] is a free, self-hostable aggregator for rss feeds
 
-[![freshrss](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freshrss-banner.png)][freshrssurl]
-[freshrssurl]: https://freshrss.org/
+[![freshrss](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freshrss-banner.png)][appurl]
 
 ## Usage
 
