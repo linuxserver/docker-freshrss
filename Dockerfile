@@ -10,6 +10,13 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 RUN \
  apk add --no-cache \
 	git \
+	sqlite && \
+
+apk add --no-cache \
+	--repository http://nl.alpinelinux.org/alpine/edge/main \
+	icu-libs && \
+ apk add --no-cache \
+	--repository http://nl.alpinelinux.org/alpine/edge/community \
 	php7-ctype \
 	php7-curl \
 	php7-dom \
@@ -25,8 +32,7 @@ RUN \
 	php7-sqlite3 \
 	php7-xml \
 	php7-zip \
-	php7-zlib \
-	sqlite
+	php7-zlib
 
 # copy local files
 COPY root/ /
