@@ -74,6 +74,7 @@ Create a user and database in your mysql/mariadb server (not root) and then foll
 
 ## Versions
 
++ **03.05.17:** Add php7-fileinfo package.
 + **23.02.17:** Rebase to alpine linux 3.5 and nginx.
 + **14.10.16:** Add version layer information.
 + **08.10.16:** Add Sqlite support for standalone operation. 
