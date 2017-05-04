@@ -24,6 +24,7 @@ apk add --no-cache \
 	php7-iconv \
 	php7-intl \
 	php7-mbstring \
+	php7-mysqli \
 	php7-mysqlnd \
 	php7-pdo_mysql \
 	php7-pdo_pgsql \
