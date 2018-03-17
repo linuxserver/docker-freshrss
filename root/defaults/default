@@ -3,7 +3,7 @@ server {
 
 	listen 443 ssl;
 
-	root /config/www/freshrss;
+	root /config/www/freshrss/p;
 	index index.html index.htm index.php;
 
 	server_name _;
