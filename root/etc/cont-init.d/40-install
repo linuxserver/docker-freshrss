@@ -2,7 +2,15 @@
 
 # install freshrss
 [[ ! -f /config/www/freshrss/index.php ]] && \
-	git clone https://github.com/FreshRSS/FreshRSS.git /config/www/freshrss
+	FRESHRSS_RELEASE=$(cat /version.txt)
+	mkdir -p /config/www/freshrss/
+	curl -o \
+		/tmp/freshrss.tar.gz -L \
+		"https://github.com/FreshRSS/FreshRSS/archive/${FRESHRSS_RELEASE}.tar.gz"
+	tar xf \
+		/tmp/freshrss.tar.gz -C \
+		/config/www/freshrss/ --strip-components=1
+	rm -f /tmp/freshrss.tar.gz
 
 # set cronjob
 crontab -u root /defaults/freshrss
