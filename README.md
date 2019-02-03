@@ -32,7 +32,7 @@ linuxserver/freshrss
 
 ## Parameters
 
-`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side. 
+`The parameters are split into two halves, separated by a colon, the left hand side representing the host and the right the container side.
 For example with a port -p external:internal - what this shows is the port mapping from internal to external of the container.
 So -p 8080:80 would expose port 80 from inside the container to be accessible from the host's IP on port 8080
 http://192.168.x.x:8080 would show you what's running INSIDE the container on port 80.`
@@ -56,7 +56,7 @@ In this instance `PUID=1001` and `PGID=1001`. To find yours use `id user` as bel
     uid=1001(dockeruser) gid=1001(dockergroup) groups=1001(dockergroup)
 ```
 
-## Setting up the application 
+## Setting up the application
 
 Create a user and database in your mysql/mariadb server (not root) and then follow the setup wizard in the webui. Use the IP address for "host" of your database server.
 
@@ -64,7 +64,7 @@ Create a user and database in your mysql/mariadb server (not root) and then foll
 
 * To monitor the logs of the container in realtime `docker logs -f freshrss`.
 
-* container version number 
+* container version number
 
 `docker inspect -f '{{ index .Config.Labels "build_version" }}' freshrss`
 
@@ -74,14 +74,15 @@ Create a user and database in your mysql/mariadb server (not root) and then foll
 
 ## Versions
 
-+ **05.09.18:** Rebase to alpine linux 3.8
++ **14.01.19:** Add multi arch and pipeline logic.
++ **05.09.18:** Rebase to alpine linux 3.8.
 + **17.03.18:** Update nginx config to resolve api not working.
-+ **08.01.18:** Rebase to alpine linux 3.7
-+ **25.05.17:** Rebase to alpine linux 3.6
++ **08.01.18:** Rebase to alpine linux 3.7.
++ **25.05.17:** Rebase to alpine linux 3.6.
 + **23.02.17:** Rebase to alpine linux 3.5 and nginx.
 + **14.10.16:** Add version layer information.
-+ **08.10.16:** Add Sqlite support for standalone operation. 
++ **08.10.16:** Add Sqlite support for standalone operation.
 + **27.09.16:** Fix for cron job.
 + **11.09.16:** Add layer badges to README.
-+ **23.11.15:** Update dependencies to latest requirements
++ **23.11.15:** Update dependencies to latest requirements.
 + **21.08.15:** Initial Release.
