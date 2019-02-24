@@ -48,6 +48,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
+  - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
   - { date: "14.01.19:", desc: "Add multi arch and pipeline logic." }
   - { date: "05.09.18:", desc: "Rebase to alpine linux 3.8." }
   - { date: "17.03.18:", desc: "Update nginx config to resolve api not working." }
