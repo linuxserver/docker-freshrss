@@ -1,5 +1,9 @@
 [![linuxserver.io](https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/linuxserver_medium.png)](https://linuxserver.io)
 
+# NOTICE
+
+This image does not auto update your FreshRSS installation with image updates! Until someone fixes that it is recommended to use the offical FreshRSS docker image from https://hub.docker.com/r/freshrss/freshrss if you can.
+
 The [LinuxServer.io](https://linuxserver.io) team brings you another container release featuring :-
 
  * regular and timely application updates
