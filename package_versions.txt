@@ -12,7 +12,7 @@ ca-certificates-cacert-20190108-r0
 coreutils-8.31-r0
 curl-7.66.0-r0
 db-5.3.28-r1
-expat-2.2.7-r1
+expat-2.2.8-r0
 git-2.22.0-r0
 gmp-6.1.2-r1
 icu-libs-64.2-r0
