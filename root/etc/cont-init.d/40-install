@@ -23,7 +23,8 @@ if grep -q 'root /config/www/freshrss/p;' /config/nginx/site-confs/default; then
 fi
 
 # disable updates
-sed -i "s|'disable_update' => false,|'disable_update' => true,|g" /config/www/freshrss/data/config.php
+[[ -f /config/www/freshrss/data/config.php ]] && \
+	sed -i "s|'disable_update' => false,|'disable_update' => true,|g" /config/www/freshrss/data/config.php
 
 # set cronjob
 crontab -u root /defaults/freshrss
