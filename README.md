@@ -209,7 +209,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
-* **07.01.19:** - Internalize app and enable updates for existing users.
+* **31.03.20:** - Internalize app and enable updates for existing users, allow user customized crontab.
 * **19.12.19:** - Rebasing to alpine 3.11.
 * **28.06.19:** - Rebasing to alpine 3.10.
 * **23.03.19:** - Switching to new Base images, shift to arm32v7 tag.

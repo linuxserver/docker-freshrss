@@ -39,6 +39,8 @@ RUN \
  tar xf \
 	/tmp/freshrss.tar.gz -C \
 	/usr/share/webapps/freshrss --strip-components=1 && \
+ sed -i "s|'disable_update' => false,|'disable_update' => true,|g" \
+	/usr/share/webapps/freshrss/config.default.php && \
  echo "**** cleanup ****" && \
  rm -rf \
 	/tmp/*

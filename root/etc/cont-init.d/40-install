@@ -2,7 +2,7 @@
 
 # make our folders
 mkdir -p \
-	/config/www/freshrss
+	/config/{crontabs,www/freshrss}
 
 # create symlinks
 symlinks=( \
@@ -27,7 +27,9 @@ fi
 	sed -i "s|'disable_update' => false,|'disable_update' => true,|g" /config/www/freshrss/data/config.php
 
 # set cronjob
-crontab -u root /defaults/freshrss
+[[ ! -f /config/crontabs/root ]] && \
+	cp /defaults/root /config/crontabs/root
+cp /config/crontabs/root /etc/crontabs/root
 
 # permissions
 chown -R abc:abc \

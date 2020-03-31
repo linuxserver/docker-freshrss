@@ -52,7 +52,7 @@ app_setup_block: |
 
 # changelog
 changelogs:
-  - { date: "07.01.19:", desc: "Internalize app and enable updates for existing users." }
+  - { date: "31.03.20:", desc: "Internalize app and enable updates for existing users, allow user customized crontab." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }

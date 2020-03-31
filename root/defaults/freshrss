@@ -1,1 +1,0 @@
-*/15 * * * * /usr/bin/php7 /usr/share/webapps/freshrss/app/actualize_script.php > /tmp/FreshRSS.log 2>&1
