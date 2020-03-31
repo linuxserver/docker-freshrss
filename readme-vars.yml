@@ -26,7 +26,7 @@ param_env_vars:
   - { env_var: "TZ", env_value: "Europe/London", desc: "Specify a timezone to use EG Europe/London." }
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "<path to data>", desc: "Local storage for freshrss site files." }
+  - { vol_path: "/config", vol_host_path: "/path/to/data", desc: "Local storage for freshrss site files." }
 param_usage_include_ports: true
 param_ports:
   - { external_port: "80", internal_port: "80", port_desc: "WebUI" }
@@ -44,10 +44,15 @@ optional_block_1: false
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
-  Create a user and database in your mysql/mariadb server (not root) and then follow the setup wizard in the webui. Use the IP address for "host" of your database server.
+  Access the webui set up wizard at `http://serverIP:port`
+  
+  For external databases, create a user and database in your mysql/mariadb server (not root) and then follow the setup wizard in the webui. Use the IP address for "host" of your database server.  
+
+  Additional extensions can be dropped into `/config/www/freshrss/extensions` and will be active after container restart.
 
 # changelog
 changelogs:
+  - { date: "31.03.20:", desc: "Internalize app and enable updates for existing users, allow user customized crontab." }
   - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
   - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
   - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }

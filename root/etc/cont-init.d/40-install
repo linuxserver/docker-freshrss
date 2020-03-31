@@ -1,20 +1,37 @@
 #!/usr/bin/with-contenv bash
 
-# install freshrss
-[[ ! -f /config/www/freshrss/index.php ]] && \
-	FRESHRSS_RELEASE=$(cat /version.txt)
-	mkdir -p /config/www/freshrss/
-	curl -o \
-		/tmp/freshrss.tar.gz -L \
-		"https://github.com/FreshRSS/FreshRSS/archive/${FRESHRSS_RELEASE}.tar.gz"
-	tar xf \
-		/tmp/freshrss.tar.gz -C \
-		/config/www/freshrss/ --strip-components=1
-	rm -f /tmp/freshrss.tar.gz
+# make our folders
+mkdir -p \
+	/config/{crontabs,www/freshrss}
+
+# create symlinks
+symlinks=( \
+/usr/share/webapps/freshrss/data \
+/usr/share/webapps/freshrss/extensions )
+
+for i in "${symlinks[@]}"
+do
+[[ -e "$i" && ! -L "$i" ]] && mv "$i" "${i}.bak"
+[[ ! -L "$i" ]] && ln -s "/config/www/freshrss/$(basename "$i")" "$i"
+[[ ! -d "/config/www/freshrss/$(basename "$i")" ]] && \
+	cp -R "${i}.bak" "/config/www/freshrss/$(basename "$i")"
+done
+
+# backwards compatibility
+if grep -q 'root /config/www/freshrss/p;' /config/nginx/site-confs/default; then 
+	cp /defaults/default /config/nginx/site-confs/default
+fi
+
+# disable updates
+[[ -f /config/www/freshrss/data/config.php ]] && \
+	sed -i "s|'disable_update' => false,|'disable_update' => true,|g" /config/www/freshrss/data/config.php
 
 # set cronjob
-crontab -u root /defaults/freshrss
+[[ ! -f /config/crontabs/root ]] && \
+	cp /defaults/root /config/crontabs/root
+cp /config/crontabs/root /etc/crontabs/root
 
 # permissions
 chown -R abc:abc \
+	/usr/share/webapps/freshrss \
 	/config
