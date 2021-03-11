@@ -14,7 +14,7 @@ coreutils-8.32-r2
 curl-7.74.0-r1
 expat-2.2.10-r1
 gdbm-1.19-r0
-git-2.30.1-r0
+git-2.30.2-r0
 gmp-6.2.1-r0
 icu-libs-67.1-r2
 libacl-2.2.53-r0
