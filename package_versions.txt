@@ -20,7 +20,7 @@ icu-libs-67.1-r2
 libacl-2.2.53-r0
 libattr-2.4.48-r0
 libc-utils-0.7.2-r3
-libcrypto1.1-1.1.1k-r0
+libcrypto1.1-1.1.1l-r0
 libcurl-7.78.0-r0
 libedit-20191231.3.1-r1
 libgcc-10.2.1_pre1-r3
@@ -32,7 +32,7 @@ libproc-3.3.16-r0
 libressl3.1-libcrypto-3.1.5-r0
 libressl3.1-libssl-3.1.5-r0
 libsasl-2.1.27-r10
-libssl1.1-1.1.1k-r0
+libssl1.1-1.1.1l-r0
 libstdc++-10.2.1_pre1-r3
 libtls-standalone-2.9.1-r1
 libuuid-2.36.1-r1
