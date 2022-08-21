@@ -45,7 +45,7 @@ RUN \
   rm -rf \
     /tmp/*
 
-# copy local files
+# copy local files
 COPY root/ /
 
 # ports and volumes
