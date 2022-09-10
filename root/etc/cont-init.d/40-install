@@ -36,6 +36,7 @@ fi
 if [[ ! -f /config/crontabs/root ]]; then
     cp /defaults/crontabs/root /config/crontabs/root
 fi
+sed -i "s|/usr/bin/php[78] /app/www/app/actualize_script.php > /tmp/FreshRSS.log 2>&1|php /app/www/app/actualize_script.php > /tmp/FreshRSS.log 2>&1|" /config/crontabs/root
 cp /config/crontabs/root /etc/crontabs/root
 
 # permissions
