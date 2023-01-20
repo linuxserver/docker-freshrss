@@ -42,4 +42,5 @@ cp /config/crontabs/root /etc/crontabs/root
 
 # permissions
 lsiown -R abc:abc \
+    /app/www \
     /config
