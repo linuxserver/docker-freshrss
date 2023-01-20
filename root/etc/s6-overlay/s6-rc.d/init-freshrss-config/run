@@ -40,7 +40,6 @@ fi
 sed -E -i "s|.*/freshrss/app/actualize_script.php.*|*/15    *       *       *       *       /usr/bin/php /app/www/app/actualize_script.php > /tmp/FreshRSS.log 2>\&1|" /config/crontabs/root
 cp /config/crontabs/root /etc/crontabs/root
 
-# permissions
-chown -R abc:abc \
-    /app/www \
+# permissions
+lsiown -R abc:abc \
     /config
