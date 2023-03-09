@@ -3,7 +3,7 @@ alpine-baselayout       3.4.0-r0               apk
 alpine-baselayout-data  3.4.0-r0               apk     
 alpine-keys             2.4-r1                 apk     
 alpine-release          3.17.2-r0              apk     
-apache2-utils           2.4.55-r0              apk     
+apache2-utils           2.4.56-r0              apk     
 apk-tools               2.12.10-r1             apk     
 apr                     1.7.2-r0               apk     
 apr-util                1.6.3-r0               apk     
@@ -17,7 +17,7 @@ ca-certificates         20220614-r4            apk
 ca-certificates-bundle  20220614-r4            apk     
 coreutils               9.1-r0                 apk     
 curl                    7.88.1-r0              apk     
-git                     2.38.4-r0              apk     
+git                     2.38.4-r1              apk     
 gmp                     6.2.1-r2               apk     
 icu-data-en             72.1-r1                apk     
 icu-libs                72.1-r1                apk     
