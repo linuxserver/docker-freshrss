@@ -3,7 +3,7 @@
 
 # make our folders
 mkdir -p \
-    /config/{crontabs,www/freshrss}
+    /config/www/freshrss
 
 # create symlinks
 symlinks=(
@@ -32,13 +32,6 @@ fi
 if [[ -f /config/www/freshrss/data/config.php ]]; then
     sed -i "s|'disable_update' => false,|'disable_update' => true,|g" /config/www/freshrss/data/config.php
 fi
-
-# set cronjob
-if [[ ! -f /config/crontabs/root ]]; then
-    cp /defaults/crontabs/root /config/crontabs/root
-fi
-sed -E -i "s|.*/freshrss/app/actualize_script.php.*|*/15    *       *       *       *       /usr/bin/php /app/www/app/actualize_script.php > /tmp/FreshRSS.log 2>\&1|" /config/crontabs/root
-cp /config/crontabs/root /etc/crontabs/root
 
 # permissions
 lsiown -R abc:abc \
