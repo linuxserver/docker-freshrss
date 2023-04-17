@@ -226,6 +226,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **13.04.23:** - Move ssl.conf include to default.conf.
 * **02.03.23:** - Split cron into separate init step and set crontab permissions.
 * **19.01.23:** - Rebase to alpine 3.17 with php8.1.
 * **21.10.22:** - Fix cron init to properly migrate existing installations to new app location.
