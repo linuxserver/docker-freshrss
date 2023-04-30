@@ -17,7 +17,7 @@ ca-certificates         20220614-r4            apk
 ca-certificates-bundle  20220614-r4            apk     
 coreutils               9.1-r0                 apk     
 curl                    8.0.1-r0               apk     
-git                     2.38.4-r1              apk     
+git                     2.38.5-r0              apk     
 gmp                     6.2.1-r2               apk     
 icu-data-en             72.1-r1                apk     
 icu-libs                72.1-r1                apk     
@@ -27,7 +27,7 @@ libattr                 2.5.1-r2               apk
 libbsd                  0.11.7-r0              apk     
 libbz2                  1.0.8-r4               apk     
 libc-utils              0.7.2-r3               apk     
-libcrypto3              3.0.8-r3               apk     
+libcrypto3              3.0.8-r4               apk     
 libcurl                 8.0.1-r0               apk     
 libedit                 20221030.3.1-r0        apk     
 libexpat                2.5.0-r0               apk     
@@ -36,7 +36,7 @@ libintl                 0.21.1-r1              apk
 libmd                   1.0.4-r0               apk     
 libpq                   15.2-r0                apk     
 libproc                 3.3.17-r2              apk     
-libssl3                 3.0.8-r3               apk     
+libssl3                 3.0.8-r4               apk     
 libstdc++               12.2.1_git20220924-r4  apk     
 libuuid                 2.38.1-r1              apk     
 libxml2                 2.10.4-r0              apk     
