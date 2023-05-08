@@ -42,6 +42,8 @@ RUN \
     /app/www --strip-components=1 && \
   sed -i "s|'disable_update' => false,|'disable_update' => true,|g" \
     /app/www/config.default.php && \
+  sed -i "s|memory_limit = 128M|memory_limit = 256M|g" \
+    /etc/php81/php.ini && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
