@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.17
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:3.18
 
 # set version label
 ARG BUILD_DATE
@@ -12,20 +12,16 @@ LABEL maintainer="aptalca"
 RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
-    php81-ctype \
-    php81-curl \
-    php81-dom \
-    php81-gmp \
-    php81-iconv \
-    php81-intl \
-    php81-mysqli \
-    php81-mysqlnd \
-    php81-pdo_mysql \
-    php81-pdo_pgsql \
-    php81-pdo_sqlite \
-    php81-pgsql \
-    php81-sqlite3 \
-    php81-zip \
+    php82-dom \
+    php82-gmp \
+    php82-intl \
+    php82-mysqli \
+    php82-mysqlnd \
+    php82-pdo_mysql \
+    php82-pdo_pgsql \
+    php82-pdo_sqlite \
+    php82-pgsql \
+    php82-sqlite3 \
     sqlite && \
   echo "**** install app ****" && \
   if [ -z ${FRESHRSS_RELEASE+x} ]; then \
