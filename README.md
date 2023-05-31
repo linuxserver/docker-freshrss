@@ -56,7 +56,7 @@ The architectures supported by this image are:
 | :----: | :----: | ---- |
 | x86-64 | ✅ | amd64-\<version tag\> |
 | arm64 | ✅ | arm64v8-\<version tag\> |
-| armhf | ✅ | arm32v7-\<version tag\> |
+| armhf | ❌ | |
 
 ## Application Setup
 
@@ -226,6 +226,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **25.05.23:** - Rebase to Alpine 3.18, deprecate armhf.
 * **13.04.23:** - Move ssl.conf include to default.conf.
 * **02.03.23:** - Split cron into separate init step and set crontab permissions.
 * **19.01.23:** - Rebase to alpine 3.17 with php8.1.
