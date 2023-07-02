@@ -19,8 +19,8 @@ coreutils               9.3-r1                  apk
 curl                    8.1.2-r0                apk     
 git                     2.40.1-r0               apk     
 gmp                     6.2.1-r3                apk     
-icu-data-en             73.2-r0                 apk     
-icu-libs                73.2-r0                 apk     
+icu-data-en             73.2-r1                 apk     
+icu-libs                73.2-r1                 apk     
 jq                      1.6-r3                  apk     
 libacl                  2.3.1-r3                apk     
 libattr                 2.5.1-r4                apk     
