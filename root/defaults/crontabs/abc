@@ -1,0 +1,2 @@
+# min   hour    day     month   weekday command
+*/15    *       *       *       *       /usr/bin/php /app/www/app/actualize_script.php > /tmp/FreshRSS.log 2>&1
