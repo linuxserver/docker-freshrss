@@ -45,8 +45,8 @@ libxml2                 2.11.4-r0               apk
 libzip                  1.9.2-r2                apk   
 linux-pam               1.5.2-r10               apk   
 logrotate               3.21.0-r1               apk   
-musl                    1.2.4-r1                apk   
-musl-utils              1.2.4-r1                apk   
+musl                    1.2.4-r2                apk   
+musl-utils              1.2.4-r2                apk   
 nano                    7.2-r1                  apk   
 ncurses-terminfo-base   6.4_p20230506-r0        apk   
 netcat-openbsd          1.219-r1                apk   
