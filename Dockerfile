@@ -13,6 +13,7 @@ RUN \
   echo "**** install runtime packages ****" && \
   apk add --no-cache \
     php83-dom \
+    php83-exif \
     php83-gmp \
     php83-intl \
     php83-mysqli \
