@@ -61,7 +61,7 @@ The architectures supported by this image are:
 
 Access the webui set up wizard at `http://serverIP:port`
 
-For external databases, create a user and database in your mysql/mariadb server (not root) and then follow the setup wizard in the webui. Use the IP address for "host" of your database server.  
+For external databases, create a user and database in your mysql/mariadb server (not root) and then follow the setup wizard in the webui. Use the IP address for "host" of your database server.
 
 Additional extensions can be dropped into `/config/www/freshrss/extensions` and will be active after container restart.
 
@@ -275,6 +275,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **19.06.24:** - Rebase to Alpine 3.20.
 * **10.04.24:** - Added php-exif module to resolve issue with fever api.
 * **06.03.24:** - Existing users should update: site-confs/default.conf - Cleanup default site conf.
 * **23.12.23:** - Rebase to Alpine 3.19 with php 8.3.

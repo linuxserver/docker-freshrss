@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:arm64v8-3.19
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:arm64v8-3.20
 
 # set version label
 ARG BUILD_DATE
@@ -39,6 +39,7 @@ RUN \
     /app/www --strip-components=1 && \
   sed -i "s|'disable_update' => false,|'disable_update' => true,|g" \
     /app/www/config.default.php && \
+  printf "Linuxserver.io version: ${VERSION}\nBuild-date: ${BUILD_DATE}" > /build_version && \
   echo "**** cleanup ****" && \
   rm -rf \
     /tmp/*
