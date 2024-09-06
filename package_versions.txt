@@ -5,7 +5,7 @@ alpine-keys             2.4-r1                 apk
 alpine-release          3.20.2-r0              apk       
 apache2-utils           2.4.62-r0              apk       
 apk-tools               2.14.4-r0              apk       
-apr                     1.7.4-r0               apk       
+apr                     1.7.5-r0               apk       
 apr-util                1.6.3-r1               apk       
 argon2-libs             20190702-r5            apk       
 bash                    5.2.26-r0              apk       
@@ -16,12 +16,12 @@ c-ares                  1.28.1-r0              apk
 ca-certificates         20240705-r0            apk       
 ca-certificates-bundle  20240705-r0            apk       
 catatonit               0.2.0-r0               apk       
-composer                2.7.8                  binary    
+composer                2.7.9                  binary    
 coreutils               9.5-r1                 apk       
 coreutils-env           9.5-r1                 apk       
 coreutils-fmt           9.5-r1                 apk       
 coreutils-sha512sum     9.5-r1                 apk       
-curl                    8.9.0-r0               apk       
+curl                    8.9.1-r1               apk       
 findutils               4.9.0-r5               apk       
 git                     2.45.2-r0              apk       
 git-init-template       2.45.2-r0              apk       
@@ -33,10 +33,10 @@ libacl                  2.3.2-r0               apk
 libattr                 2.5.2-r0               apk       
 libbsd                  0.12.2-r0              apk       
 libbz2                  1.0.8-r6               apk       
-libcrypto3              3.3.1-r3               apk       
-libcurl                 8.9.0-r0               apk       
+libcrypto3              3.3.2-r0               apk       
+libcurl                 8.9.1-r1               apk       
 libedit                 20240517.3.1-r0        apk       
-libexpat                2.6.2-r0               apk       
+libexpat                2.6.3-r0               apk       
 libgcc                  13.2.1_git20240309-r0  apk       
 libidn2                 2.3.7-r0               apk       
 libintl                 0.22.5-r0              apk       
@@ -45,7 +45,7 @@ libncursesw             6.4_p20240420-r0       apk
 libpq                   16.3-r0                apk       
 libproc2                4.0.4-r0               apk       
 libpsl                  0.21.5-r1              apk       
-libssl3                 3.3.1-r3               apk       
+libssl3                 3.3.2-r0               apk       
 libstdc++               13.2.1_git20240309-r0  apk       
 libunistring            1.2-r0                 apk       
 libuuid                 2.40.1-r1              apk       
@@ -61,7 +61,7 @@ netcat-openbsd          1.226-r0               apk
 nghttp2-libs            1.62.1-r0              apk       
 nginx                   1.26.2-r0              apk       
 oniguruma               6.9.9-r0               apk       
-openssl                 3.3.1-r3               apk       
+openssl                 3.3.2-r0               apk       
 pcre                    8.45-r3                apk       
 pcre2                   10.43-r0               apk       
 php83                   8.3.10-r0              apk       
