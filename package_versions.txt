@@ -23,6 +23,7 @@ coreutils-fmt           9.5-r1                 apk
 coreutils-sha512sum     9.5-r1                 apk       
 curl                    8.9.1-r2               apk       
 findutils               4.9.0-r5               apk       
+freshrss                UNKNOWN                npm       
 git                     2.45.2-r0              apk       
 git-init-template       2.45.2-r0              apk       
 gmp                     6.3.0-r1               apk       
