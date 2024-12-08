@@ -6,22 +6,19 @@ project_url: "https://freshrss.org/"
 project_logo: "https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/freshrss-banner.png"
 project_blurb: "[{{ project_name|capitalize }}]({{ project_url }}) is a free, self-hostable aggregator for rss feeds."
 project_lsio_github_repo_url: "https://github.com/linuxserver/docker-{{ project_name }}"
-
 # supported architectures
 available_architectures:
-  - { arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
-  - { arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
-
+  - {arch: "{{ arch_x86_64 }}", tag: "amd64-latest"}
+  - {arch: "{{ arch_arm64 }}", tag: "arm64v8-latest"}
 # container parameters
 common_param_env_vars_enabled: true
 param_container_name: "{{ project_name }}"
 param_usage_include_vols: true
 param_volumes:
-  - { vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Persistent config files" }
+  - {vol_path: "/config", vol_host_path: "/path/to/{{ project_name }}/config", desc: "Persistent config files"}
 param_usage_include_ports: true
 param_ports:
-  - { external_port: "80", internal_port: "80", port_desc: "WebUI" }
-
+  - {external_port: "80", internal_port: "80", port_desc: "WebUI"}
 # application setup block
 app_setup_block_enabled: true
 app_setup_block: |
@@ -30,35 +27,89 @@ app_setup_block: |
   For external databases, create a user and database in your mysql/mariadb server (not root) and then follow the setup wizard in the webui. Use the IP address for "host" of your database server.
 
   Additional extensions can be dropped into `/config/www/freshrss/extensions` and will be active after container restart.
-
+# init diagram
+init_diagram: |
+  "freshrss:latest": {
+    docker-mods
+    base {
+      fix-attr +\nlegacy cont-init
+    }
+    docker-mods -> base
+    legacy-services
+    custom services
+    init-services -> legacy-services
+    init-services -> custom services
+    custom services -> legacy-services
+    legacy-services -> ci-service-check
+    init-migrations -> init-adduser
+    init-nginx-end -> init-config
+    init-os-end -> init-config
+    init-config -> init-config-end
+    init-freshrss-config -> init-config-end
+    init-os-end -> init-crontab-config
+    init-mods-end -> init-custom-files
+    base -> init-envfile
+    init-os-end -> init-folders
+    init-nginx-end -> init-freshrss-config
+    init-php -> init-keygen
+    base -> init-migrations
+    base -> init-mods
+    init-config-end -> init-mods
+    init-version-checks -> init-mods
+    init-mods -> init-mods-end
+    init-mods-package-install -> init-mods-end
+    init-mods -> init-mods-package-install
+    init-samples -> init-nginx
+    init-permissions -> init-nginx-end
+    base -> init-os-end
+    init-adduser -> init-os-end
+    init-envfile -> init-os-end
+    init-migrations -> init-os-end
+    init-keygen -> init-permissions
+    init-nginx -> init-php
+    init-folders -> init-samples
+    init-custom-files -> init-services
+    init-mods-end -> init-services
+    init-config-end -> init-version-checks
+    init-services -> svc-cron
+    svc-cron -> legacy-services
+    init-services -> svc-nginx
+    svc-nginx -> legacy-services
+    init-services -> svc-php-fpm
+    svc-php-fpm -> legacy-services
+  }
+  Base Images: {
+    "baseimage-alpine-nginx:3.20" <- "baseimage-alpine:3.20"
+  }
+  "freshrss:latest" <- Base Images
 # changelog
 changelogs:
-  - { date: "19.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
-  - { date: "10.04.24:", desc: "Added php-exif module to resolve issue with fever api." }
-  - { date: "06.03.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf." }
-  - { date: "23.12.23:", desc: "Rebase to Alpine 3.19 with php 8.3."}
-  - { date: "25.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf." }
-  - { date: "13.04.23:", desc: "Move ssl.conf include to default.conf." }
-  - { date: "02.03.23:", desc: "Split cron into separate init step and set crontab permissions." }
-  - { date: "19.01.23:", desc: "Rebase to alpine 3.17 with php8.1." }
-  - { date: "21.10.22:", desc: "Fix cron init to properly migrate existing installations to new app location." }
-  - { date: "20.08.22:", desc: "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))." }
-  - { date: "23.01.21:", desc: "Rebasing to alpine 3.13." }
-  - { date: "01.06.20:", desc: "Rebasing to alpine 3.12." }
-  - { date: "31.03.20:", desc: "Internalize app and enable updates for existing users, allow user customized crontab." }
-  - { date: "19.12.19:", desc: "Rebasing to alpine 3.11." }
-  - { date: "28.06.19:", desc: "Rebasing to alpine 3.10." }
-  - { date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag." }
-  - { date: "22.02.19:", desc: "Rebasing to alpine 3.9." }
-  - { date: "14.01.19:", desc: "Add multi arch and pipeline logic." }
-  - { date: "05.09.18:", desc: "Rebase to alpine linux 3.8." }
-  - { date: "17.03.18:", desc: "Update nginx config to resolve api not working." }
-  - { date: "08.01.18:", desc: "Rebase to alpine linux 3.7." }
-  - { date: "25.05.17:", desc: "Rebase to alpine linux 3.6." }
-  - { date: "23.02.17:", desc: "Rebase to alpine linux 3.5 and nginx." }
-  - { date: "14.10.16:", desc: "Add version layer information." }
-  - { date: "08.10.16:", desc: "Add Sqlite support for standalone operation." }
-  - { date: "27.09.16:", desc: "Fix for cron job." }
-  - { date: "11.09.16:", desc: "Add layer badges to README." }
-  - { date: "23.11.15:", desc: "Update dependencies to latest requirements." }
-  - { date: "21.08.15:", desc: "Initial Release." }
+  - {date: "19.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
+  - {date: "10.04.24:", desc: "Added php-exif module to resolve issue with fever api."}
+  - {date: "06.03.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf."}
+  - {date: "23.12.23:", desc: "Rebase to Alpine 3.19 with php 8.3."}
+  - {date: "25.05.23:", desc: "Rebase to Alpine 3.18, deprecate armhf."}
+  - {date: "13.04.23:", desc: "Move ssl.conf include to default.conf."}
+  - {date: "02.03.23:", desc: "Split cron into separate init step and set crontab permissions."}
+  - {date: "19.01.23:", desc: "Rebase to alpine 3.17 with php8.1."}
+  - {date: "21.10.22:", desc: "Fix cron init to properly migrate existing installations to new app location."}
+  - {date: "20.08.22:", desc: "Rebasing to alpine 3.15 with php8. Restructure nginx configs ([see changes announcement](https://info.linuxserver.io/issues/2022-08-20-nginx-base))."}
+  - {date: "23.01.21:", desc: "Rebasing to alpine 3.13."}
+  - {date: "01.06.20:", desc: "Rebasing to alpine 3.12."}
+  - {date: "31.03.20:", desc: "Internalize app and enable updates for existing users, allow user customized crontab."}
+  - {date: "19.12.19:", desc: "Rebasing to alpine 3.11."}
+  - {date: "28.06.19:", desc: "Rebasing to alpine 3.10."}
+  - {date: "23.03.19:", desc: "Switching to new Base images, shift to arm32v7 tag."}
+  - {date: "22.02.19:", desc: "Rebasing to alpine 3.9."}
+  - {date: "14.01.19:", desc: "Add multi arch and pipeline logic."}
+  - {date: "05.09.18:", desc: "Rebase to alpine linux 3.8."}
+  - {date: "17.03.18:", desc: "Update nginx config to resolve api not working."}
+  - {date: "08.01.18:", desc: "Rebase to alpine linux 3.7."}
+  - {date: "25.05.17:", desc: "Rebase to alpine linux 3.6."}
+  - {date: "23.02.17:", desc: "Rebase to alpine linux 3.5 and nginx."}
+  - {date: "14.10.16:", desc: "Add version layer information."}
+  - {date: "08.10.16:", desc: "Add Sqlite support for standalone operation."}
+  - {date: "27.09.16:", desc: "Fix for cron job."}
+  - {date: "11.09.16:", desc: "Add layer badges to README."}
+  - {date: "23.11.15:", desc: "Update dependencies to latest requirements."}
+  - {date: "21.08.15:", desc: "Initial Release."}
