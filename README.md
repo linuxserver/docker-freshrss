@@ -276,6 +276,7 @@ Once registered you can define the dockerfile to use with `-f Dockerfile.aarch64
 
 ## Versions
 
+* **27.07.25:** - Rebase to Alpine 3.22.
 * **19.06.24:** - Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings.
 * **10.04.24:** - Added php-exif module to resolve issue with fever api.
 * **06.03.24:** - Existing users should update: site-confs/default.conf - Cleanup default site conf.

@@ -87,6 +87,7 @@ init_diagram: |
   "freshrss:latest" <- Base Images
 # changelog
 changelogs:
+  - {date: "27.07.25:", desc: "Rebase to Alpine 3.22."}
   - {date: "19.06.24:", desc: "Rebase to Alpine 3.20. Existing users should update their nginx confs to avoid http2 deprecation warnings."}
   - {date: "10.04.24:", desc: "Added php-exif module to resolve issue with fever api."}
   - {date: "06.03.24:", desc: "Existing users should update: site-confs/default.conf - Cleanup default site conf."}
