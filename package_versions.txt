@@ -17,7 +17,7 @@ c-ares                  1.34.5-r0         apk
 ca-certificates         20250911-r0       apk       
 ca-certificates-bundle  20250911-r0       apk       
 catatonit               0.2.1-r0          apk       
-composer                2.9.1             binary    
+composer                2.9.2             binary    
 coreutils               9.7-r1            apk       
 coreutils-env           9.7-r1            apk       
 coreutils-fmt           9.7-r1            apk       
