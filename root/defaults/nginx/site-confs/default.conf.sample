@@ -1,4 +1,4 @@
-## Version 2026/02/08 - Changelog: https://github.com/linuxserver/docker-freshrss/commits/master/root/defaults/nginx/site-confs/default.conf.sample
+## Version 2026/05/05 - Changelog: https://github.com/linuxserver/docker-freshrss/commits/master/root/defaults/nginx/site-confs/default.conf.sample
 
 server {
     listen 80 default_server;
@@ -15,6 +15,18 @@ server {
     root /app/www/p;
     index index.html index.htm index.php;
 
+    # Allow access to the ".well-known" directory
+    location ^~ /.well-known {
+        allow all;
+    }
+
+    # deny access to all dotfiles
+    location ~ /\. {
+        access_log off;
+        log_not_found off;
+        return 404;
+    }
+
     location / {
         # enable for basic auth
         #auth_basic "Restricted";
@@ -29,22 +41,11 @@ server {
         #auth_basic_user_file /config/nginx/.htpasswd;
 
         fastcgi_split_path_info ^(.+\.php)(.*)$;
-        if (!-f $document_root$fastcgi_script_name) { return 404; }
+        if (!-f $document_root$fastcgi_script_name) {
+            return 404;
+        }
         fastcgi_pass 127.0.0.1:9000;
         fastcgi_index index.php;
         include /etc/nginx/fastcgi_params;
-    }
-
-    # deny access to all dotfiles
-    location ~ /\. {
-        deny all;
-        log_not_found off;
-        access_log off;
-        return 404;
-    }
-
-    # Allow access to the ".well-known" directory
-    location ^~ /.well-known {
-        allow all;
     }
 }
