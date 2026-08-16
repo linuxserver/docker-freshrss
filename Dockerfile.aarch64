@@ -31,7 +31,7 @@ RUN \
   echo "**** install app ****" && \
   if [ -z ${FRESHRSS_RELEASE+x} ]; then \
     FRESHRSS_RELEASE=$(curl -sX GET "https://api.github.com/repos/FreshRSS/FreshRSS/releases/latest" \
-    | awk '/tag_name/{print $4;exit}' FS='[""]'); \
+    | jq -r '.tag_name'); \
   fi && \
   mkdir -p \
     /app/www && \
